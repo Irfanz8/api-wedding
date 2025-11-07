@@ -1,0 +1,27 @@
+name = "wedding-invitation-api"
+main = "src/index.ts"
+compatibility_date = "2024-11-06"
+
+[env.production]
+workers_dev = true   # Menggunakan domain .workers.dev
+
+[env.development]
+workers_dev = true   # Menggunakan domain .workers.dev untuk development
+
+# Cloudflare KV Namespace binding (optional)
+[[kv_namespaces]]
+binding = "CACHE"
+id = "YOUR_KV_NAMESPACE_ID"
+
+# Environment variables
+[env.production.vars]
+SUPABASE_URL = ""
+SUPABASE_KEY = ""
+JWT_SECRET = ""
+API_DOMAIN = "https://api-wedding.com"
+
+[env.development.vars]
+SUPABASE_URL = ""
+SUPABASE_KEY = ""
+JWT_SECRET = ""
+API_DOMAIN = "http://localhost:8787"
