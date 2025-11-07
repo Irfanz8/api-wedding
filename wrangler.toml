@@ -1,27 +1,22 @@
-name = "wedding-invitation-api"
+name = "api-wedding"
 main = "src/index.ts"
 compatibility_date = "2024-11-06"
 
 [env.production]
-workers_dev = true   # Menggunakan domain .workers.dev
-
-[env.development]
-workers_dev = true   # Menggunakan domain .workers.dev untuk development
-
-# Cloudflare KV Namespace binding (optional)
-[[kv_namespaces]]
-binding = "CACHE"
-id = "YOUR_KV_NAMESPACE_ID"
+workers_dev = true
 
 # Environment variables
-[env.production.vars]
-SUPABASE_URL = ""
-SUPABASE_KEY = ""
-JWT_SECRET = ""
-API_DOMAIN = "https://api-wedding.com"
+[vars]
+SUPABASE_URL = ""    # Akan diset via Cloudflare dashboard
+SUPABASE_KEY = ""    # Akan diset via Cloudflare dashboard
+JWT_SECRET = ""      # Akan diset via Cloudflare dashboard
+API_DOMAIN = ""      # Akan diset sesuai domain workers.dev yang diberikan
+
+[env.development]
+workers_dev = true
 
 [env.development.vars]
-SUPABASE_URL = ""
-SUPABASE_KEY = ""
-JWT_SECRET = ""
-API_DOMAIN = "http://localhost:8787"
+SUPABASE_URL = "https://tqixgnhbusytaeagvwct.supabase.co"
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRxaXhnbmhidXN5dGFlYWd2d2N0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE4NzY0MzEsImV4cCI6MjA3NzQ1MjQzMX0.x7AcV25jAhDU_AQV7L111KV_WsDUKLl9Q3L0rDNpviw"
+JWT_SECRET = "c0dc90b3a1ce8283b09d11f337e3e5e0fbd55ca86f192864d44eea3c8330e4d0"
+API_DOMAIN = "http://localhost:8787"  # Keep localhost for local development
